@@ -41,3 +41,20 @@ def test_can_get_total_price(cart):
 
     item_database.get = Mock(side_effect=mock_get_item)
     assert cart.get_total_price(item_database) == 3.0
+
+def test_can_get_total_price_p2(cart):
+    cart.add("apple")
+    cart.add("orange")
+    cart.add("mango")
+    item_database = ItemDatabase()
+
+    def mock_get_item(item: str):
+        if item == "apple":
+            return 1.0
+        if item == "orange":
+            return 2.0
+        if item == "mango":
+            return 3.0
+
+    item_database.get = Mock(side_effect=mock_get_item)
+    assert cart.get_total_price(item_database) == 6.0
