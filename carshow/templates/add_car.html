@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title%} {{page_name}} {% endblock %}
+{% block content%}
+<h1>{{page_name}}</h1>
+<p>Add Car Page</p>
+<div class="container mt-3">
+  <form method="post" actio="#" >
+    {% csrf_token %}
+    <div class="mb-3">
+  <label for="name" class="form-label">Name of Car:</label>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name of Car">
+    </div>
+    <div class="mb-3">
+  <label for="mileage" class="form-label">Mileage:</label>
+  <input type="text" class="form-control" id="mileage" name="mileage" placeholder="Enter Mileage of Car">
+    </div>
+    <div class="mb-3">
+  <label for="avg_speed" class="form-label">Average Speed:</label>
+  <input type="text" class="form-control" id="avg_speed" name="avg_speed" placeholder="Enter Average Speed of Car">
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" name="submit">
+    </div>
+</form>
+
+</div>
+{% endblock %}

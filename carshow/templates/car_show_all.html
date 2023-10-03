@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title%} {{page_name}} {% endblock %}
+{% block content %}
+<h1>{{page_name}}</h1>
+<p>I am Car Show All</p>
+<div class="container my-3">
+    {% if qset %}
+<table class="table table-primary">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Car_Name</th>
+      <th scope="col">Car_Mileage</th>
+      <th scope="col">Car_Avg_Speed</th>
+      <th scope="col">Edit Delete</th>
+    </tr>
+  </thead>
+        {% for obj in qset %}
+  <tbody>
+    <tr>
+      <th scope="col">#</th>
+      <td scope="col">{{obj.name}}</td>
+      <td scope="col">{{obj.mileage}}</td>
+      <td scope="col">{{obj.avg_speed}}</td>
+      <td scope="col"><a href="/show_all/{{obj.id}}">Edit</a> &nbsp;&nbsp; <a href="show_all/{{obj.id}}">Delete</a> </td>
+    </tr>
+  </tbody>
+        {% endfor %}
+</table>
+    {% endif %}
+</div>
+{% endblock %}
